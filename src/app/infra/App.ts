@@ -4,7 +4,7 @@ import { Tcp } from "./Tcp";
 export class App implements IService {
   private static instance: App;
 
-  private tcp: IService = new Tcp(); // Екземпляр сервіса TCP
+  private tcp: IService = new Tcp();
 
   constructor() {
     if (!App.instance) {
