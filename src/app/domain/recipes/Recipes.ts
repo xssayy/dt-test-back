@@ -32,12 +32,21 @@ export default class Recipes {
   ) {
     let url = `${process.env.BASE_URL}/filter.php?`;
 
-    if (ingredient) url += `i=${ingredient}`;
-    if (country) url += `&a=${country}`;
-    if (category) url += `&c=${category}`;
-
-    const { data } = await axios.get<IFilteredMealResponse>(url);
-    return new ApiResponse(true, data);
+    if (ingredient) {
+      url += `i=${ingredient}`;
+      const { data } = await axios.get<IFilteredMealResponse>(url);
+      return new ApiResponse(true, data);
+    }
+    if (country) {
+      url += `&a=${country}`;
+      const { data } = await axios.get<IFilteredMealResponse>(url);
+      return new ApiResponse(true, data);
+    }
+    if (category) {
+      url += `&c=${category}`;
+      const { data } = await axios.get<IFilteredMealResponse>(url);
+      return new ApiResponse(true, data);
+    }
   }
 
   @Get("/:id")
