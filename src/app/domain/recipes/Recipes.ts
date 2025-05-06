@@ -8,16 +8,16 @@ import {
   Param,
   QueryParam,
 } from "routing-controllers";
-import { IFilteredMeal, IRecepie, IRecepiesResponse } from "./Recepies.types";
+import { IFilteredMeal, IRecipe, IRecipesResponse } from "./Recipes.types";
 
 import { ApiError } from "helpers/ApiError";
 import { ApiResponse } from "helpers/ApiResponse";
 
-@JsonController("/recepies")
-export default class Recepies {
+@JsonController("/recipes")
+export default class Recipes {
   @Get()
   async getAll() {
-    const { data } = await axios.get<IRecepiesResponse>(
+    const { data } = await axios.get<IRecipesResponse>(
       `${process.env.BASE_URL}/search.php?s=`
     );
 
@@ -42,12 +42,12 @@ export default class Recepies {
 
   @Get("/:id")
   async getOne(@Param("id") id: number) {
-    const { data } = await axios.get<IRecepiesResponse>(
+    const { data } = await axios.get<IRecipesResponse>(
       `${process.env.BASE_URL}/lookup.php?i=${id}`
     );
     if (!data || !data.meals || data.meals.length === 0) {
       throw new ApiError(404, {
-        code: "RECEPIE_NOT_FOUND",
+        code: "Recipe_NOT_FOUND",
         message: `Person with id ${id} not found`,
       });
     }

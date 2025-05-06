@@ -1,8 +1,8 @@
-export interface IRecepiesResponse {
-  meals: IRecepie[];
+export interface IRecipesResponse {
+  meals: IRecipe[];
 }
 
-export interface IRecepie {
+export interface IRecipe {
   idMeal: string;
   strMeal: string;
   strMealAlternate: string | null;

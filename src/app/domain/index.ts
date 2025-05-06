@@ -1,7 +1,7 @@
-import Recepies from "./recepies/Recepies";
+import Recipes from "./recipes/Recipes";
 
-type RecepiesController = typeof Recepies;
+type RecipesController = typeof Recipes;
 
-const controllers = <RecepiesController[]>[Recepies];
+const controllers = <RecipesController[]>[Recipes];
 
 export { controllers };
