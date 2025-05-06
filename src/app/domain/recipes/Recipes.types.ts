@@ -58,6 +58,10 @@ export interface IRecipe {
   dateModified: string | null;
 }
 
+export interface IFilteredMealResponse {
+  meals: IFilteredMeal[];
+}
+
 export interface IFilteredMeal {
   strMeal: string;
   strMealThumb: string;

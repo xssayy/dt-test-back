@@ -8,7 +8,7 @@ import {
   Param,
   QueryParam,
 } from "routing-controllers";
-import { IFilteredMeal, IRecipe, IRecipesResponse } from "./Recipes.types";
+import { IFilteredMealResponse, IRecipesResponse } from "./Recipes.types";
 
 import { ApiError } from "helpers/ApiError";
 import { ApiResponse } from "helpers/ApiResponse";
@@ -36,7 +36,7 @@ export default class Recipes {
     if (country) url += `&a=${country}`;
     if (category) url += `&c=${category}`;
 
-    const { data } = await axios.get<IFilteredMeal>(url);
+    const { data } = await axios.get<IFilteredMealResponse>(url);
     return new ApiResponse(true, data);
   }
 
